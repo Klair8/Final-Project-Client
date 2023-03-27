@@ -1,23 +1,36 @@
-import Typewriter from 'typewriter-effect';
+import {useState,useEffect} from 'react';
 
-function Text(){
-return(
-    <Typewriter
-    onInit={(typewriter) => {
-      typewriter.typeString('Hello World!')
-        .callFunction(() => {
-          console.log('String typed out!');
+const Text = (props) =>{
+    const [text,setText] = useState([])
+   
+    useEffect (()=>{
+        fetch('/api/story')
+        .then(res => res.json())
+        .then(data => {
+            setText(data)
         })
-        .pauseFor(2500)
-        .deleteAll()
-        .callFunction(() => {
-          console.log('All strings were deleted');
+        .catch(e => {
+          console.log(e);
         })
-        .start();
-    }}
-  />
+    },[])
 
-  )
+    return(
+        <>
+         
+        {
+            story.map(items =>{
+                return(
+                    
+                    <div key={items.id}>
+                    <h4>{items.story}</h4>
+                    </div>
+                         )
+                        })
+                    }
+                 
+                      </>
+        
+    )
 }
 
 export default Text

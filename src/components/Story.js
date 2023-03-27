@@ -6,6 +6,7 @@ import Text from './Text'
 
 const Story = (props) =>{
     const [story,setStory] = useState([])
+      const [started, setStarted] = useState(false);
    
     useEffect (()=>{
         fetch('/api/story')
@@ -17,6 +18,19 @@ const Story = (props) =>{
           console.log(e);
         })
     },[])
+
+    const handleGenerate = () => {
+        if (started) {
+          return;
+        }
+        setStarted(true);
+        let i = -1;
+        timer = setInterval(() => {
+          i++;
+          if (i === Text.length - 1) clearInterval(timer);
+          setText((prev) => prev + Text[i]);
+        }, 20);
+      };
   
     
     return(
@@ -30,7 +44,7 @@ const Story = (props) =>{
                     
                     <div key={items.id}>
                     <h4>{items.story}</h4>
-                    <Speech  
+                    <Speech onClick={handleGenerate} 
                     stop={true} 
                     pause={true} 
                     resume={true}  
