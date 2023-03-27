@@ -1,6 +1,7 @@
 import {useState,useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import Speech from 'react-speech';
+import Text from './Text'
 
 
 const Story = (props) =>{
@@ -34,6 +35,7 @@ const Story = (props) =>{
                     pause={true} 
                     resume={true}  
                     text={items.story} voice="Google UK English Female" />
+                    <Text/>
                     </div>
                          )
                         })
