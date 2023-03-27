@@ -1,9 +1,11 @@
 import {useState,useEffect} from 'react';
 import {Link} from 'react-router-dom';
+import Speech from 'react-speech';
 
 
 const Story = (props) =>{
     const [story,setStory] = useState([])
+   
     useEffect (()=>{
         fetch('/api/story')
         .then(res => res.json())
@@ -14,20 +16,29 @@ const Story = (props) =>{
           console.log(e);
         })
     },[])
-
+  
+    
     return(
         <>
           <h1>Story Page</h1>
+          <Link to ={`/`}> Back to the Menu</Link>
+         
         {
             story.map(items =>{
                 return(
+                    
                     <div key={items.id}>
                     <h4>{items.story}</h4>
-                    <Link to ={`/`}> Back to the Menu</Link>
+                    <Speech  
+                    stop={true} 
+                    pause={true} 
+                    resume={true}  
+                    text={items.story} voice="Google UK English Female" />
                     </div>
                          )
                         })
                     }
+                 
                       </>
         
     )
