@@ -1,6 +1,7 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import { useState, useEffect } from "react";
-import Stories from './components/Stories'
+import Stories from './components/Stories';
+import Story from './components/Story';
 import './App.css';
 
 
@@ -19,6 +20,7 @@ function App() {
      <p>{message}</p>
      <Routes>
           <Route path='/' element={<Stories/>} />
+          <Route path='/:id' element={<Story/>} />
       </Routes>
     </div>
     </BrowserRouter>

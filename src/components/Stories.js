@@ -1,4 +1,6 @@
 import {useState, useEffect} from 'react'
+import {Link} from 'react-router-dom'
+
 
 const Stories =(props)=>{
     const [stories, setStories] = useState([])
@@ -25,6 +27,7 @@ const Stories =(props)=>{
                   return(
                     <div key={story.id}>
                         <h2> {story.name}</h2>
+                        <Link to ={`/${story.id}`}> Show </Link>
                         </div>
                   )  
                 })
