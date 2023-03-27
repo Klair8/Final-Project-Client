@@ -1,13 +1,14 @@
 import {useState,useEffect} from 'react';
 
 const Text = (props) =>{
-    const [text,setText] = useState([])
+    const [story,setStory] = useState([])
+ 
    
     useEffect (()=>{
         fetch('/api/story')
         .then(res => res.json())
         .then(data => {
-            setText(data)
+            setStory(data)
         })
         .catch(e => {
           console.log(e);
@@ -20,7 +21,6 @@ const Text = (props) =>{
         {
             story.map(items =>{
                 return(
-                    
                     <div key={items.id}>
                     <h4>{items.story}</h4>
                     </div>

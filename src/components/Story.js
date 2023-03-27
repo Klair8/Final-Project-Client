@@ -3,10 +3,12 @@ import {Link} from 'react-router-dom';
 import Speech from 'react-speech';
 import Text from './Text'
 
+let timer;
 
 const Story = (props) =>{
     const [story,setStory] = useState([])
-      const [started, setStarted] = useState(false);
+    const [started, setStarted] = useState(false);
+    const [text, setText] = useState("");
    
     useEffect (()=>{
         fetch('/api/story')
@@ -40,8 +42,7 @@ const Story = (props) =>{
          
         {
             story.map(items =>{
-                return(
-                    
+                return(        
                     <div key={items.id}>
                     <h4>{items.story}</h4>
                     <Speech onClick={handleGenerate} 
