@@ -1,36 +1,27 @@
-import {useState,useEffect} from 'react';
+import { useState, useEffect } from 'react';
 
-const Text = (props) =>{
-    const [story,setStory] = useState([])
- 
-   
-    useEffect (()=>{
-        fetch('/api/story')
-        .then(res => res.json())
-        .then(data => {
-            setStory(data)
-        })
-        .catch(e => {
-          console.log(e);
-        })
-    },[])
 
-    return(
-        <>
-         
-        {
-            story.map(items =>{
-                return(
-                    <div key={items.id}>
-                    <h4>{items.story}</h4>
-                    </div>
-                         )
-                        })
-                    }
-                 
-                      </>
-        
-    )
-}
+const Text = ({ text }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-export default Text
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => prev + 1);
+    }, 150);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <>
+      { 
+        text.slice(0, currentIndex).split('').map((char, i) => (
+          <span key={i}>{char}</span>
+        ))
+      }
+    </>
+  );
+};
+
+export default Text;
