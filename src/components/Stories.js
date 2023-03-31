@@ -22,13 +22,12 @@ const Stories =(props)=>{
 
     return(
         <div>
-            <h2>Choose the stories</h2>
+            <h2>STORIES FOR KIDS AGES 3-5 </h2>
             {
                 stories.map(story=>{
                   return(
                     <div key={story.id}>
                         <h2> {story.name}</h2>
-                        <p>Level 1</p>
                         <p>Short Description</p>
                         <Link to ={`/${story.id}`}> Show </Link>
                         </div>

@@ -2,7 +2,7 @@ import {useState,useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import Speech from 'react-speech';
 import Text from './Text'
-import { useTts } from 'tts-react'
+
 
 const Story = (props) =>{
     const [story,setStory] = useState([])
@@ -42,18 +42,17 @@ const Story = (props) =>{
 
     return(
         <>
-          <h1>Story Page</h1>
-          <Link to ={`/`}> Back to the Menu</Link>
-         
         {
             story.map(items =>{
                 return(        
                     <div key={items.id}>
+                    <h2>{items.name}</h2>
                     <h4>{items.story}</h4>
                     <button onClick={() => {
           console.log("Button start clicked");
           handleGenerate();
         }} >START </button>
+        <Link to ={`/`}> <button> Back To Menu </button></Link>
         <br></br>
         <br></br>
          {started && (

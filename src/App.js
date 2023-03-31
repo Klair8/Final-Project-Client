@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import Stories from './components/Stories';
 import Story from './components/Story';
 import './App.css';
+import HomePage from './components/HomePage';
+
 
 
 function App() {
@@ -19,7 +21,8 @@ function App() {
     <div className="App">
      <p>{message}</p>
      <Routes>
-          <Route path='/' element={<Stories/>} />
+          <Route path='/' element={<HomePage/>} />
+          <Route path='/stories/age-3-5' element={<Stories/>} />
           <Route path='/:id' element={<Story/>} />
       </Routes>
     </div>
