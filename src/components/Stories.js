@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
+import NavBar from './NavBar';
 
 
 const Stories =(props)=>{
@@ -22,6 +23,7 @@ const Stories =(props)=>{
 
     return(
         <div>
+          <NavBar/>
             <h2>STORIES FOR KIDS AGES 3-5 </h2>
             {
                 stories.map(story=>{

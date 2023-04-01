@@ -1,14 +1,15 @@
 import {useState,useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import { TextToSpeech} from 'tts-react'
+import NavBar from './NavBar';
 // import Speech from 'react-speech';
 // import Text from './Text'
-
 
 const Story = (props) =>{
     const [story,setStory] = useState([])
     const [started, setStarted] = useState(false);
-    const [text, setText] = useState("");
+    // const [text, setText] = useState("");
+    
    
     useEffect (()=>{
         fetch('/api/story')
@@ -22,24 +23,23 @@ const Story = (props) =>{
         })
     },[])
 
-
-
     const handleGenerate = () => {
         if (started) {
           return;
         }
         setStarted(true);
-        let i = 0 ; // initialize the variable of the current index
-        const timer = setInterval(() => {
-          i++;
-          if (i === text.length ) clearInterval(timer);
-          setText((prev) => prev + Text[i]);
-        }, 100);
+        // let i = 0 ; // initialize the variable of the current index
+        // const timer = setInterval(() => {
+        //   i++;
+        //   if (i === text.length ) clearInterval(timer);
+        //   setText((prev) => prev + Text[i]);
+        // }, 100);
         console.log("Started typing");  
       };
       
     return(
         <>
+        <NavBar/>
         {
             story.map(items =>{
                 return(        
