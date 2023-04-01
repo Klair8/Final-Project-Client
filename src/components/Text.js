@@ -8,7 +8,7 @@ const Text = ({ text }) => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prev) => prev + 1);
-    }, 150);
+    }, 160);
 
     return () => clearInterval(timer);
   }, []);

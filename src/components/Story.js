@@ -1,7 +1,8 @@
 import {useState,useEffect} from 'react';
 import {Link} from 'react-router-dom';
-import Speech from 'react-speech';
-import Text from './Text'
+import { TextToSpeech} from 'tts-react'
+// import Speech from 'react-speech';
+// import Text from './Text'
 
 
 const Story = (props) =>{
@@ -27,7 +28,6 @@ const Story = (props) =>{
         if (started) {
           return;
         }
-
         setStarted(true);
         let i = 0 ; // initialize the variable of the current index
         const timer = setInterval(() => {
@@ -38,8 +38,6 @@ const Story = (props) =>{
         console.log("Started typing");  
       };
       
-
-
     return(
         <>
         {
@@ -55,22 +53,37 @@ const Story = (props) =>{
         <Link to ={`/`}> <button> Back To Menu </button></Link>
         <br></br>
         <br></br>
-         {started && (
+         {/* {started && (
               <Speech
                 text={items.story}
                 stop={true}
                 pause={true}
-                resume={true}
+                resume={true}             
                 voice="Google UK English Female"
                 rate="0.75"
               />
             )}
-            <br></br>
-            <br></br>
-            {/* {started && 
+            {started && 
             <Text 
             text={items.story}
          />} */}
+{started && (
+  <div className="tts">
+    <TextToSpeech
+  align="horizontal"
+  allowMuting
+  markBackgroundColor="pink"
+  markColor="white"
+  markTextAsSpoken
+  lang="en-AU"
+  position="leftCenter"
+  rate={0.75}
+  size="large"
+  volume={1}>
+  <h4>{items.story}</h4>
+</TextToSpeech>
+</div>
+)}
 
           </div>
         );
