@@ -1,15 +1,18 @@
 import {useState,useEffect} from 'react';
-import {Link} from 'react-router-dom';
-import { TextToSpeech} from 'tts-react'
+import {Link, useLocation } from 'react-router-dom';
+import {TextToSpeech} from 'tts-react'
 import NavBar from './NavBar';
 
+
 const Story = (props) =>{
+const location = useLocation();
+const id = location.state
+console.log('props',id)
     const [story,setStory] = useState([])
     const [started, setStarted] = useState(false);
 
-   
     useEffect (()=>{
-        fetch('/api/story')
+        fetch(`/api/story/${id}`)
         .then(res => res.json())
         .then(data => {
           setStory(data)
@@ -28,13 +31,19 @@ const Story = (props) =>{
         console.log("Started typing");  
       };
       
+
+      const selectedText =()=>{
+      console.log(window.getSelection().toString())
+
+      }
+
     return(
         <>
         <NavBar/>
         {
             story.map(items =>{
                 return(        
-                    <div key={items.id}>
+                    <div key={items.id} className="storydiv">
                     <h2>{items.title}</h2>
                     <h4>{items.author}</h4>
                     <button onClick={() => {
@@ -44,10 +53,9 @@ const Story = (props) =>{
         <Link to ={`/`}> <button> Back To Menu </button></Link>
         <br></br>
         <br></br>
-     
 {started && (
   <div className="tts">
-    <TextToSpeech
+    <TextToSpeech className="ttstry"
   align="horizontal"
   allowMuting
   markBackgroundColor="pink"
@@ -58,7 +66,10 @@ const Story = (props) =>{
   rate={0.75}
   size="large"
   volume={1}>
+    <div onMouseUp={selectedText} className="story-text">
   <h4>{items.story}</h4>
+  {/* <p>{items.story.slice(0, 300)}</p> */}
+  </div>
 </TextToSpeech>
 </div>
 )}

@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import NavBar from './NavBar';
 
 
-const Stories =(props)=>{
+const StoriesPage =(props)=>{
     const [stories, setStories] = useState([])
 
     useEffect(()=>{
@@ -16,7 +16,6 @@ const Stories =(props)=>{
         } catch(e){
             console.log(e)
         }
-       
       }
       getStories()
     },[])
@@ -27,21 +26,23 @@ const Stories =(props)=>{
           <br></br>
             <h2>STORIES FOR KIDS AGES 3-5 </h2>
             <br></br>
+            <div className="storiespage">
             {
                 stories.map(story=>{
                   return(
-                    <div className="storiescard" key={story.id}>
-                        <h2> {story.title}</h2>
-                        <p> {story.description}</p>
+                    <div className="storiescont" key={story.id}>
+                        <h2>{story.title}</h2>
+                        <p>{story.description}</p>
                         <br></br>
-                        <Link to ={`/${story.id}`}> Read </Link>
+                        <Link to ={`/story/${story.id}`} state={story.id} onClick={() => console.log('story.id', story.id)}>Read</Link>
                         </div>
                   )  
                 })
             }
+            </div>
         </div>
     )
 }
 
 
-export default Stories
+export default StoriesPage
