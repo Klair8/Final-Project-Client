@@ -2,14 +2,11 @@ import {useState,useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import { TextToSpeech} from 'tts-react'
 import NavBar from './NavBar';
-// import Speech from 'react-speech';
-// import Text from './Text'
 
 const Story = (props) =>{
     const [story,setStory] = useState([])
     const [started, setStarted] = useState(false);
-    // const [text, setText] = useState("");
-    
+
    
     useEffect (()=>{
         fetch('/api/story')
@@ -28,12 +25,6 @@ const Story = (props) =>{
           return;
         }
         setStarted(true);
-        // let i = 0 ; // initialize the variable of the current index
-        // const timer = setInterval(() => {
-        //   i++;
-        //   if (i === text.length ) clearInterval(timer);
-        //   setText((prev) => prev + Text[i]);
-        // }, 100);
         console.log("Started typing");  
       };
       
@@ -44,8 +35,8 @@ const Story = (props) =>{
             story.map(items =>{
                 return(        
                     <div key={items.id}>
-                    <h2>{items.name}</h2>
-                    <h4>{items.story}</h4>
+                    <h2>{items.title}</h2>
+                    <h4>{items.author}</h4>
                     <button onClick={() => {
           console.log("Button start clicked");
           handleGenerate();
@@ -53,20 +44,7 @@ const Story = (props) =>{
         <Link to ={`/`}> <button> Back To Menu </button></Link>
         <br></br>
         <br></br>
-         {/* {started && (
-              <Speech
-                text={items.story}
-                stop={true}
-                pause={true}
-                resume={true}             
-                voice="Google UK English Female"
-                rate="0.75"
-              />
-            )}
-            {started && 
-            <Text 
-            text={items.story}
-         />} */}
+     
 {started && (
   <div className="tts">
     <TextToSpeech

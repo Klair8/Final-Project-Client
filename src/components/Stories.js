@@ -24,14 +24,17 @@ const Stories =(props)=>{
     return(
         <div>
           <NavBar/>
+          <br></br>
             <h2>STORIES FOR KIDS AGES 3-5 </h2>
+            <br></br>
             {
                 stories.map(story=>{
                   return(
-                    <div key={story.id}>
-                        <h2> {story.name}</h2>
-                        <p>Short Description</p>
-                        <Link to ={`/${story.id}`}> Show </Link>
+                    <div className="storiescard" key={story.id}>
+                        <h2> {story.title}</h2>
+                        <p> {story.description}</p>
+                        <br></br>
+                        <Link to ={`/${story.id}`}> Read </Link>
                         </div>
                   )  
                 })
