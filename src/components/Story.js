@@ -2,15 +2,18 @@ import {useState,useEffect} from 'react';
 import {Link, useLocation } from 'react-router-dom';
 import {TextToSpeech} from 'tts-react'
 import NavBar from './NavBar';
+import Translation from './Translation';
+
 
 
 const Story = (props) =>{
-const location = useLocation();
-const id = location.state
-console.log('props',id)
-    const [story,setStory] = useState([])
-    const [started, setStarted] = useState(false);
+  const location = useLocation();
+  const id = location.state
+  console.log('props',id)
 
+  const [story,setStory] = useState([])
+  const [started, setStarted] = useState(false);
+    
     useEffect (()=>{
         fetch(`/api/story/${id}`)
         .then(res => res.json())
@@ -21,7 +24,7 @@ console.log('props',id)
         .catch(e => {
           console.log(e);
         })
-    },[])
+     },[])
 
     const handleGenerate = () => {
         if (started) {
@@ -31,31 +34,33 @@ console.log('props',id)
         console.log("Started typing");  
       };
       
-
       const selectedText =()=>{
       console.log(window.getSelection().toString())
-
+      //fetch dictionnary 
       }
-
+   
     return(
         <>
         <NavBar/>
+     
         {
-            story.map(items =>{
-                return(        
-                    <div key={items.id} className="storydiv">
-                    <h2>{items.title}</h2>
-                    <h4>{items.author}</h4>
-                    <button onClick={() => {
+          
+          story.map(items =>{
+            return(        
+                <div key={items.id} className="storydiv">
+                  <h2>{items.title}</h2>
+                  <h4>{items.author}</h4>
+                  <button onClick={() => {
           console.log("Button start clicked");
           handleGenerate();
-        }} >START </button>
+        }}> START </button>
+         <Translation />
         <Link to ={`/`}> <button> Back To Menu </button></Link>
         <br></br>
         <br></br>
-{started && (
-  <div className="tts">
-    <TextToSpeech className="ttstry"
+  {started && (
+    <div className="tts">
+    <TextToSpeech 
   align="horizontal"
   allowMuting
   markBackgroundColor="pink"
@@ -65,15 +70,15 @@ console.log('props',id)
   position="leftCenter"
   rate={0.75}
   size="large"
-  volume={1}>
-    <div onMouseUp={selectedText} className="story-text">
-  <h4>{items.story}</h4>
-  {/* <p>{items.story.slice(0, 300)}</p> */}
-  </div>
-</TextToSpeech>
+  volume={1} >
+    <div onClick={selectedText} className="story-text">
+    {
+      items.story.split()
+    }
+    </div>
+    </TextToSpeech>
 </div>
 )}
-
           </div>
         );
       })}
