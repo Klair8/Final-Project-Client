@@ -5,13 +5,13 @@ import NavBar from './NavBar';
 import Translation from './Translation';
 
 
-
 const Story = (props) =>{
   const location = useLocation();
   const id = location.state
   console.log('props',id)
 
-  const [story,setStory] = useState([])
+  const [story, setStory] = useState([]);
+  const [language, setLanguage] = useState('en-AU');
   const [started, setStarted] = useState(false);
     
     useEffect (()=>{
@@ -34,10 +34,16 @@ const Story = (props) =>{
         console.log("Started typing");  
       };
       
-      const selectedText =()=>{
-      console.log(window.getSelection().toString())
-      //fetch dictionnary 
-      }
+      // const selectedText =()=>{
+      // console.log(window.getSelection().toString())
+      // //fetch dictionnary 
+      // }
+
+      const handleLanguageChange = (lang) => {
+        setLanguage(lang);
+        console.log(`Language changed to ${lang}`);
+      };
+      
    
     return(
         <>
@@ -51,10 +57,13 @@ const Story = (props) =>{
                   <h2>{items.title}</h2>
                   <h4>{items.author}</h4>
                   <button onClick={() => {
-          console.log("Button start clicked");
-          handleGenerate();
-        }}> START </button>
-         <Translation />
+              console.log("Button start clicked");
+              handleGenerate();
+            }}> START </button>
+        <Translation textToTranslate={items.story} lang={language} />
+            {/* <button onClick={() => handleLanguageChange('en-AU')}>English</button>
+            <button onClick={() => handleLanguageChange('fr-FR')}>French</button> */}
+       {/* <button onClick={handleSelectText}>Select All</button> */}
         <Link to ={`/`}> <button> Back To Menu </button></Link>
         <br></br>
         <br></br>
@@ -71,7 +80,8 @@ const Story = (props) =>{
   rate={0.75}
   size="large"
   volume={1} >
-    <div onClick={selectedText} className="story-text">
+    {/* <div onClick={selectedText} className="story-text"> */}
+    <div className="story-text">
     {
       items.story.split()
     }
