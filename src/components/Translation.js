@@ -1,60 +1,89 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const Translation = () => {
-  const [selectedText, setSelectedText] = useState('');
-  const [translatedText, setTranslatedText] = useState('');
-  const [selectedLanguage, setSelectedLanguage] = useState('en');
+function Translation() {
+  const [options, setOptions] = useState([]);
+  const [to, setTo] = useState('en');
+  const [from, setFrom] = useState('en');
+  const [input, setInput] = useState('');
+  const [output, setOutput] = useState('');
 
-  const handleTranslation = () => {
-
+  const translate = () => {
     const encodedParams = new URLSearchParams();
-    encodedParams.append("source_language", "en");
-    encodedParams.append("target_language", "it");
-    encodedParams.append("text", selectedText);
-    
+    encodedParams.append('q', input);
+    encodedParams.append('target', to);
+    encodedParams.append('source', from);
 
-    const translate = {
+    const Translation = {
       method: 'POST',
-      url: 'https://text-translator2.p.rapidapi.com/translate',
+      url: 'https://google-translate1.p.rapidapi.com/language/translate/v2',
       headers: {
         'content-type': 'application/x-www-form-urlencoded',
         'X-RapidAPI-Key': 'd91fdc477fmsh9e8d04c8a086ea6p1418bajsnb51f10d99b41',
-        'X-RapidAPI-Host': 'text-translator2.p.rapidapi.com'
+        'X-RapidAPI-Host': 'google-translate1.p.rapidapi.com',
       },
-      data: encodedParams ,
+      data: encodedParams,
     };
 
     axios
-      .request(translate)
+      .request(Translation)
       .then(function (response) {
-        setTranslatedText(response.data);
+        setOutput(response.data.data.translations[0].translatedText);
       })
       .catch(function (error) {
         console.error(error);
       });
   };
 
-  const handleLanguageChange = (event) => {
-    setSelectedLanguage(event.target.value);
-  };
+  useEffect(() => {
+    axios
+      .get('https://google-translate1.p.rapidapi.com/language/translate/v2/languages', {
+        headers: {
+          'X-RapidAPI-Key': 'd91fdc477fmsh9e8d04c8a086ea6p1418bajsnb51f10d99b41',
+          'X-RapidAPI-Host': 'google-translate1.p.rapidapi.com',
+        },
+      })
+      .then((res) => {
+        console.log(res);
+        setOptions(res.data.data.languages);
+      });
+  }, []);
 
   return (
-    <div>
-      <textarea
-        value={selectedText}
-        onChange={(e) => setSelectedText(e.target.value)}
-      />
-      <select value={selectedLanguage} onChange={handleLanguageChange}>
-        <option value="fr">French</option>
-        <option value="es">Spanish</option>
-        <option value="de">German</option>
-        <option value="it">Italian</option>
-      </select>
-      <button onClick={handleTranslation}>Translate</button>
-      {translatedText && <p>{translatedText}</p>}
+    <div className="App">
+      <div>
+        From ({from}):
+        <select onChange={(e) => setFrom(e.target.value)} style={{ fontSize: '16px', color: 'black' }}>
+          {options.map((opt) => (
+            <option key={opt.language} value={opt.language}>
+              {opt.name}
+            </option>
+
+          ))}
+        </select>
+        To({to}):
+        <select onChange={(e) => setTo(e.target.value)}>
+          {options.map((opt) => (
+            <option key={opt.language} value={opt.language}>
+              {opt.name}
+            </option>
+          ))}
+        </select>
+      </div>
+        
+      <div>
+        <textarea cols="50" rows="8" onInput={(e) => setInput(e.target.value)}></textarea>
+      </div>
+
+      <div>
+        <textarea cols="50" rows="8" value={output}></textarea>
+      </div>
+
+      <div>
+        <button onClick={(e) => translate()}>Translate</button>
+      </div>
     </div>
   );
-};
+}
 
 export default Translation;
