@@ -65,7 +65,7 @@ function Translation() {
         <select onChange={(e) => setTo(e.target.value)}>
           {options.map((opt) => (
             <option key={opt.language} value={opt.language}>
-              {opt.name}
+              {opt.language}
             </option>
           ))}
         </select>
