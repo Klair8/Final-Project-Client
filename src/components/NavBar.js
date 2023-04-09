@@ -16,6 +16,7 @@ function NavBar() {
              <Nav.Link as={NavLink} exact to="/" >Home</Nav.Link> 
               <Nav.Link as={NavLink} exact to="/stories/age-3-5">kids-stories</Nav.Link>
               <Nav.Link as={NavLink} exact to="/about">About</Nav.Link>
+              <Nav.Link as={NavLink} exact to="/favorite">Favorite</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
