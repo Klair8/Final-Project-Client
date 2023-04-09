@@ -74,14 +74,12 @@ const closedefBox =()=>{
 //function add to favorite
  const handleFavorite =()=>{
     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    const isAlreadyFavorite = favorites.some(fav => fav.id === story.id);
-    console.log('story.id',story.id)
+    const isAlreadyFavorite = favorites.some(fav => fav.id === id);
+    console.log('favstory.id',id)
 
-    if (isAlreadyFavorite) {
-        const updatedFavorites = favorites.filter(fav => fav.id !== story.id);
-        localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
-      } else {
+    if (!isAlreadyFavorite) {
         favorites.push(story);
+        console.log('favoritestory',story)
         localStorage.setItem('favorites', JSON.stringify(favorites));
       }
       setToFavorite(!isFavorite);
