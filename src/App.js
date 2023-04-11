@@ -4,7 +4,7 @@ import StoriesPage from './components/StoriesPage';
 import Story from './components/Story';
 import './App.css';
 import HomePage from './components/HomePage';
-import About from './components/About';
+import Alpha from './components/Alpha';
 import Favorite from './components/Favorite';
 
 
@@ -25,8 +25,8 @@ function App() {
           <Route path='/' element={<HomePage/>} />
           <Route path='/stories/age-3-5' element={<StoriesPage/>} />
           <Route path='/story/:id' element={<Story/>} />
-          <Route path='/about' element={<About/>} />
-          <Route path='/favorite' element={<Favorite/>} />
+          <Route path='/EasyA' element={<Alpha/>} />
+          <Route path='/Favorite' element={<Favorite/>} />
       </Routes>
     </div>
     </BrowserRouter>
