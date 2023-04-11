@@ -20,22 +20,21 @@ const Alpha =()=>{
     const [box, setBox] = useState (false);
     const [clickedLetter, setClickedLetter] = useState(null);
 
-    const showBox = (letterC) => {
-        const index = abcCapital.indexOf(letterC);
+    const showBox = (letter) => {
+        const index = combinedArray.indexOf(letter);
         console.log('indexletter',index)
+
         if (index !== -1 && index < combinedArray.length - 1) {
           const clickedLetter = combinedArray[index];
-          console.log('clickedLetter',clickedLetter)
+        //   console.log('clickedLetter',clickedLetter)
           const nextLetter = combinedArray[index + 1];
-          console.log('nextLetter',nextLetter)
+        //   console.log('nextLetter',nextLetter)
           setClickedLetter([clickedLetter, nextLetter]);
           setBox(true);
         }
       };
   
-
       const closeBox =()=>{
-        setClickedLetter('');
         setBox(false);
     }
 
@@ -44,10 +43,12 @@ const Alpha =()=>{
           <NavBar />
           <h1>Easy Alphabet</h1>
           <div className="letter">
-            {abcCapital.map((letterC,index) => {
+            {abcCapital.map((letter) => {
+                //  const letterColor = letter.toLowerCase();
+                 const letterColor = letter.toLowerCase() === "a" ? "a" : letter.toLowerCase();
               return (
-                <div key={index}>
-                  <button onClick={() => showBox(letterC)}>{letterC}</button>
+                <div key={letter.id}>
+                  <button onClick={() => showBox(letter)} className={letterColor}>{letter}</button>
                 </div>
               );
             })}
@@ -66,7 +67,7 @@ const Alpha =()=>{
                           volume={0.90}
                         >
                 {clickedLetter && (
-                  <div key={clickedLetter}>
+                  <div key={clickedLetter} >
                         <h3>{clickedLetter[0]}</h3> 
                         <h3>{clickedLetter[1]}</h3>
                   </div>
