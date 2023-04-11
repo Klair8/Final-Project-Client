@@ -6,14 +6,15 @@ import {TextToSpeech} from 'tts-react'
 
 const Alpha =()=>{
     const abc = [...Array(26)].map((_, i) => String.fromCharCode(i + 97)); 
-    // console.log('abc',abc)
 
     const abcCapital = [...Array(26)].map((_, i) => String.fromCharCode(i + 65)); 
-    // console.log('abcCapital',abcCapital)
+
+    const words = ["Apple","Bat","Citrus","Dog","Egg","Flower","Giraffe","Hat","Ice","Jelly","Koala","Limonade","Marmelade","Ninja","Orange","Pear","Queen","Radio","Season", "Truck","Umbrella","Van","Watch","	Xylophone","Yoga","Zebra"]
+    console.log('words',words)
 
     const combinedArray = []; // new array 
     for (let i = 0; i < abc.length; i++) {
-    combinedArray.push(abcCapital[i], abc[i]);
+    combinedArray.push(abcCapital[i], abc[i], words[i]);
     }
     console.log('combinedArray', combinedArray);
 
@@ -29,7 +30,9 @@ const Alpha =()=>{
         //   console.log('clickedLetter',clickedLetter)
           const nextLetter = combinedArray[index + 1];
         //   console.log('nextLetter',nextLetter)
-          setClickedLetter([clickedLetter, nextLetter]);
+          const word = combinedArray[index + 2];
+          // console.log('word',word)
+          setClickedLetter([clickedLetter, nextLetter, word]);
           setBox(true);
         }
       };
@@ -71,6 +74,7 @@ const Alpha =()=>{
                   <div key={clickedLetter} >
                         <h3>{clickedLetter[0]}</h3> 
                         <h3>{clickedLetter[1]}</h3>
+                        <h3> such as : {clickedLetter[2]}</h3>
                   </div>
                 )}
                 </TextToSpeech>
