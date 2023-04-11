@@ -1,6 +1,7 @@
 .App {
   text-align: center;
 }
+
 .Homepage{
   background-image: url("szabo-viktor.jpg"); 
   background-repeat: no-repeat;
@@ -31,10 +32,10 @@
   border : 2px solid black ;
  
 }
+
 .storiescont{
   border : 2px solid black ;
   width: 400px;
-
 }
 
 .storydiv{
@@ -43,7 +44,6 @@
   align-items: center;
   border:2px solid black;
 }
-
 
 .story-text{
   max-width: 800px;
@@ -54,7 +54,30 @@
   font-family: Arial, sans-serif;
 }
 
+/* text to speech CSS */
 .tts{
   display: flex;
+}
 
+/* Easy Alphabet CSS */
+.letter {
+width: 60%;
+margin: 10% 20%;
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+}
+
+
+.letter button{
+  border:2px solid black;
+  width: 60px;
+  height: 60px;
+}
+
+
+.letterBox{
+  border:2px solid black;
+  width: 700px;
+  height: 250px;
 }
