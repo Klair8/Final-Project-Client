@@ -30,7 +30,7 @@ const StoriesPage =(props)=>{
             {
                 stories.map(story=>{
                   return(
-                    <div className="storiescont" key={story.id}>
+                    <div className="storycontainer" key={story.id}>
                         <h2>{story.title}</h2>
                         <p>{story.description}</p>
                         <br></br>

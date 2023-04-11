@@ -41,6 +41,7 @@ const Alpha =()=>{
     return (
         <div>
           <NavBar />
+          <div className="alpha">
           <h1>Easy Alphabet</h1>
           <div className="letter">
             {abcCapital.map((letter) => {
@@ -77,6 +78,7 @@ const Alpha =()=>{
               </div>
             )}
           </div>
+        </div>
         </div>
       );
     };

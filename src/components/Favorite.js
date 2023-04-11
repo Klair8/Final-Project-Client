@@ -21,18 +21,23 @@ const Favorite = () => {
     return(
         <div>
             <NavBar/>
-
+        <div className='favorite'>
         <h1> Favorite Stories </h1>
          {
             favorites.map(items =>(
                 favorites && items && items[0] &&
                 <div key={items[0].id}>
-                    <h3>{items[0].title}</h3>
-                    <p> By {items[0].author}</p>
-                    <button onClick={() => handleDelete(items[0].id)}>Delete</button> 
+                    <table>
+                        <tr>
+                    <th>{items[0].title}</th>
+                    <th><button> GO to the Story  </button> </th>
+                    <th><button onClick={() => handleDelete(items[0].id)}>Delete</button></th> 
+                        </tr>
+                    </table>
                     </div>
             ))
          }
+        </div>
         </div>
     )
 }
