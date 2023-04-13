@@ -3,17 +3,16 @@ import {useState,useEffect} from 'react';
 import NavBar from './NavBar';
 import {TextToSpeech} from 'tts-react'
 import React from 'react';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHeart } from '@fortawesome/free-regular-svg-icons'
 
 console.log('key',process.env.REACT_APP_API_KEY)
 // const Key = process.env.REACT_APP_API_KEY;
-
 
 const Story =(props)=>{
 const location = useLocation();
 const id = location.state;
 console.log('props Id story',id);
-
 
 const [story, setStory] = useState([]);
 const [started, setStarted] = useState(false);
@@ -39,7 +38,6 @@ const handleGenerate =()=>{
         return;
     }
     setStarted(true);
-    console.log('started')
 }
 
 //function for the dictionnary
@@ -50,7 +48,7 @@ const handleWordClick = (word) => {
     const options = {
         method: 'GET',
         headers: {
-          'X-RapidAPI-Key': 'Key',
+          'X-RapidAPI-Key': 'Key',// key without the "" !!
           'X-RapidAPI-Host': 'dictionary-by-api-ninjas.p.rapidapi.com'
         }
       }
@@ -98,7 +96,13 @@ return(
                     <button className='button-storypage' onClick={()=>{
                     handleGenerate();
                     }}> Start Story </button>
-                    <button onClick={() => handleFavorite()}>  {isFavorite ? 'Remove from Favorites' : 'Add to Favorites'} </button>  
+                       <FontAwesomeIcon
+                        icon={faHeart}
+                        className="iconfav"
+                        size="xl"
+                        style={{ color: isFavorite ? '#c977cf' : 'black' }}
+                        onClick={() => handleFavorite()}
+                        />
                     {started && (
                         <div className="tts">
                         <TextToSpeech
@@ -107,9 +111,10 @@ return(
                           markBackgroundColor="pink"
                           markColor="white"
                           markTextAsSpoken
-                          lang="en-AU"
+                          lang="en"
                           position="leftCenter"
-                          rate={0.75}
+                          pitch={0.90}
+                          rate={0.80}
                           size="large"
                           volume={0.90}
                         >
@@ -122,12 +127,13 @@ return(
                         </TextToSpeech>
                         <div className="definitionBox">
                             <h4>{selectedWord}</h4>
-                            <p>{definition}</p>
+                            <p> {definition} </p>
                             {selectedWord && definition && (
                                 <button onClick={()=>closedefBox()}> X </button>
                                 )
                             }
                         </div>
+                        
                         </div>
                     )}
                 </div>     
