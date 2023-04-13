@@ -88,14 +88,17 @@ return(
     <div>
         <NavBar/>
         <div className="storyPage">
-        { story.map((items)=>{
-            return(
+        { 
+            story.map((items)=>{
+              return(
                 <div key={items.id} className="storydiv">
                     <h2>{items.title}</h2>
                     <p> created by {items.author}</p>
                     <button className='button-storypage' onClick={()=>{
                     handleGenerate();
-                    }}> Start Story </button>
+                    }}> Start The Story </button>
+                    <h5> If you don't understand a word, click on it to get the definition !!</h5>
+                    <br></br>
                        <FontAwesomeIcon
                         icon={faHeart}
                         className="iconfav"
@@ -118,22 +121,36 @@ return(
                           size="large"
                           volume={0.90}
                         >
-                        <div className="story-text">{items.story.split(' ').map((word, index) => (
+                       <div className="story-text">
+                          {items.story.split(' ').map((word, index) => {
+                    if (word.endsWith('.') && index % 2 === 0) {
+                    // Add a line break after the sentence
+                    return (
+                        <React.Fragment key={index}>
+                            <span onClick={() => handleWordClick(word)}>{word}</span>
+                            <br/> 
+                            <br/> 
+                        </React.Fragment>
+                    );
+                    } else {
+                    return (
                         <span key={index} onClick={() => handleWordClick(word)}>
                         {word}{' '}
                         </span>
-                         ))}
-                        </div>
+                    );
+                    }
+                    })}
+                    </div>
                         </TextToSpeech>
+                        <br></br>
                         <div className="definitionBox">
                             <h4>{selectedWord}</h4>
-                            <p> {definition} </p>
+                            <h5> {definition} </h5>
                             {selectedWord && definition && (
                                 <button onClick={()=>closedefBox()}> X </button>
                                 )
                             }
                         </div>
-                        
                         </div>
                     )}
                 </div>     

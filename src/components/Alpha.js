@@ -64,7 +64,7 @@ const Alpha =()=>{
                           markBackgroundColor="pink"
                           markColor="white"
                           markTextAsSpoken
-                          lang="en-AU"
+                          lang="en"
                           position="leftCenter"
                           rate={0.55}
                           size="large"

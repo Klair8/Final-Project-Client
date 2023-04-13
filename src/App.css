@@ -94,9 +94,24 @@
   box-shadow: 0 9px #999;
   }
 
+ 
 .iconfav{
   font-size: 2.5em;
 }
+
+/* text to speech CSS in Story component */
+.tts {
+  margin-top: 6vh;
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+}
+
+.tts-react{
+  display: grid;
+  text-align: justify;
+}
+
 
 .story-text{
   max-width: 800px;
@@ -107,21 +122,7 @@
   font-family: Arial, sans-serif;
 }
 
-/* text to speech CSS in Story component */
-.tts {
-  display: flex;
-  flex-direction: column;
-}
-
-/* favorite component */
-.favorite{
-  margin-top: 50px;
-  width:100%;
-  height: 100vh;
-
-}
 /* Easy Alphabet component */
-
 .alpha{
   width:100%;
   height: 200vh;
