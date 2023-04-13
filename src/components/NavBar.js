@@ -14,7 +14,11 @@ function NavBar() {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
              <Nav.Link as={NavLink} exact to="/" >Home</Nav.Link> 
-              <Nav.Link as={NavLink} exact to="/stories/age-3-5">kids-stories</Nav.Link>
+              <Nav.Link as={NavLink} exact to="/kids-stories">kids-stories</Nav.Link>
+              <Nav.Link as={NavLink} exact to="/stories/level1">Stories Ages 3-5</Nav.Link>
+              <Nav.Link as={NavLink} exact to="/stories/level2">Stories Ages 5-6</Nav.Link>
+              <Nav.Link as={NavLink} exact to="/stories/level3">Stories Ages 6-7</Nav.Link>
+              <Nav.Link as={NavLink} exact to="/stories/adventure">Adventures Stories</Nav.Link>
               <Nav.Link as={NavLink} exact to="/EasyA">Easy Alphabet</Nav.Link>
               <Nav.Link as={NavLink} exact to="/Favorite">Favorite</Nav.Link>
             </Nav>

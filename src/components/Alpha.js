@@ -68,7 +68,7 @@ const Alpha =()=>{
                           position="leftCenter"
                           rate={0.55}
                           size="large"
-                          volume={0.90}
+                          volume={0.85}
                         >
                 {clickedLetter && (
                   <div key={clickedLetter} >

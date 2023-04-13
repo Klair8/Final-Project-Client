@@ -4,16 +4,17 @@ import Card from 'react-bootstrap/Card';
 import NavBar from './NavBar';
 
 
-const StoriesPage =(props)=>{
+const StoriesAdv =(props)=>{
     const [stories, setStories] = useState([])
 
     useEffect(()=>{
       const getStories = async ()=>{
         try{
-            const res = await fetch('/api/story')
+            const res = await fetch('/api/story/')
             const data = await res.json()
-            setStories(data)
-            console.log('data',data)
+            const specificStories = data.filter(story => story.style == "adventure" )
+        setStories(specificStories);
+         console.log('dataforadventure',specificStories)
         } catch(e){
             console.log(e)
         }
@@ -24,15 +25,14 @@ const StoriesPage =(props)=>{
     return(
         <div>
           <NavBar/>
-          <br></br>
-          <h2>All our Stories </h2>
           <div className="storiespage">
+          <h2>Adventure Stories !! </h2>
+          <div className="storycontainer">
             <br></br>
             {
                 stories.map(story=>{
                   return(
-                    <div className="storycontainer" key={story.id}>
-                      <Card style={{ width: '18rem', height:'26rem' }}>
+                      <Card className="card"  key={story.id} style={{ width: '18rem', height:'26rem' , border:'2px solid black' }}>
                        <Card.Img variant="top" src={story.image_url} /> 
                        <Card.Body>
                        <Card.Title>{story.title}</Card.Title>
@@ -41,14 +41,14 @@ const StoriesPage =(props)=>{
                         <button variant="primary"><Link to ={`/story/${story.id}`} state={story.id} onClick={() => console.log('story.id', story.id)}>Read</Link></button>
                         </Card.Body>  
                         </Card>
-                        </div>
                   )  
                 })
             }
+            </div>
             </div>
         </div>
     )
 }
 
 
-export default StoriesPage
+export default StoriesAdv

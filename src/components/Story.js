@@ -2,10 +2,11 @@ import {useLocation } from 'react-router-dom';
 import {useState,useEffect} from 'react';
 import NavBar from './NavBar';
 import {TextToSpeech} from 'tts-react'
+import React from 'react';
 
 
 console.log('key',process.env.REACT_APP_API_KEY)
-const Key = process.env.REACT_APP_API_KEY;
+// const Key = process.env.REACT_APP_API_KEY;
 
 
 const Story =(props)=>{
@@ -49,7 +50,7 @@ const handleWordClick = (word) => {
     const options = {
         method: 'GET',
         headers: {
-          'X-RapidAPI-Key': Key,
+          'X-RapidAPI-Key': 'Key',
           'X-RapidAPI-Host': 'dictionary-by-api-ninjas.p.rapidapi.com'
         }
       }
@@ -58,9 +59,9 @@ const handleWordClick = (word) => {
       .then ((response) =>{
       const definition = response.definition;
       console.log('def',definition);
-    //   const definitionBefore = definition ? definition.split('')[1] : 'Oups this definition isnt available' ; // Extrac part of def. 
+      const definitionBefore = definition ? definition.split('.')[1] : 'Oups this definition isnt available' ; // Extrac part of def. 
       setSelectedWord(word);
-      setDefinition(definition);
+      setDefinition(definitionBefore);
     })
       .catch(err => console.log(err)) 
  };
@@ -113,7 +114,9 @@ return(
                           size="large"
                           volume={0.90}
                         >
-                        <div className="story-text">
+
+
+          <div className="story-text">
                         {items.story.split(' ').map((word, index) => (
                     <span key={index} onClick={() => handleWordClick(word)}>
                       {word}{' '}

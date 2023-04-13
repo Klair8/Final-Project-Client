@@ -8,27 +8,31 @@ const HomePage =()=>{
             <div className="Homepage">
                  <NavBar/>
                 <div className="section">
-            <div className="BrbyAge">
+            <div className="Browseby">
                 <h1>Browse By Age </h1>
                 <br></br>
-                <Link to="/stories/age-3-5">  
-                <button className="button-56"> Stories for kids Ages 3-5 </button>
+                <Link to="/stories/level1">  
+                <button className="button-Homepage"> Stories Ages 3-5 </button>
                 </Link> 
                 <br></br>
-                <Link to="/stories/age-3-5">  
-                <button className="button-56"> Stories for kids Ages 5-8 </button>
+                <Link to="/stories/level2">  
+                <button className="button-Homepage"> Stories Ages 5-6 </button>
                 </Link> 
                 <br></br>
-                <Link to="/stories/age-3-5">  
-                <button className="button-56"> Stories for kids Ages 8-10 </button>
+                <Link to="/stories/level3">  
+                <button className="button-Homepage"> Stories Ages 6-7 </button>
                 </Link> 
             </div>
-            <div className="BrbyAge">
+            <div className="Browseby">
                 <h1>Browse By Style </h1>
                 <br></br>
-                <button className="button-56"> Adventures</button>
+                <Link to="/stories/adventure"> 
+                <button className="button-Homepage"> Adventures </button>
+                </Link> 
                 <br></br>
-                <button className="button-56"> Spaces </button>
+                <Link to="/stories/adventure"> 
+                <button className="button-Homepage"> Spaces </button>
+                </Link> 
             </div>
             </div>
         </div>
