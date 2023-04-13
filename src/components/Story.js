@@ -4,8 +4,8 @@ import NavBar from './NavBar';
 import {TextToSpeech} from 'tts-react'
 
 
-console.log('key',process.env.REACT_APP_WEATHER_API_KEY)
-// const Key= process.env.REACT_APP_WEATHER_API_KEY;
+console.log('key',process.env.REACT_APP_API_KEY)
+const Key = process.env.REACT_APP_API_KEY;
 
 
 const Story =(props)=>{
@@ -49,7 +49,7 @@ const handleWordClick = (word) => {
     const options = {
         method: 'GET',
         headers: {
-          'X-RapidAPI-Key': 'Key',
+          'X-RapidAPI-Key': Key,
           'X-RapidAPI-Host': 'dictionary-by-api-ninjas.p.rapidapi.com'
         }
       }
@@ -58,9 +58,9 @@ const handleWordClick = (word) => {
       .then ((response) =>{
       const definition = response.definition;
       console.log('def',definition);
-      const definitionBefore = definition ? definition.split('.')[1] : 'Oups this definition isnt available' ; // Extrac part of def. 
+    //   const definitionBefore = definition ? definition.split('')[1] : 'Oups this definition isnt available' ; // Extrac part of def. 
       setSelectedWord(word);
-      setDefinition(definitionBefore);
+      setDefinition(definition);
     })
       .catch(err => console.log(err)) 
  };
@@ -109,7 +109,7 @@ return(
                           markTextAsSpoken
                           lang="en-AU"
                           position="leftCenter"
-                          rate={0.85}
+                          rate={0.65}
                           size="large"
                           volume={0.90}
                         >

@@ -7,7 +7,7 @@ import {NavLink} from 'react-router-dom'
 
 function NavBar() {
     return (
-      <Navbar bg="light" expand="lg" class="navbar navbar-expand-lg navbar-light bg-transparent">
+      <Navbar bg="danger p-2 text-dark bg-opacity-25" expand="lg" class="navbar navbar-expand-lg navbar-light bg-transparent">
         <Container>       
           <Navbar.Brand as={NavLink} exact to="/" >Dream Learning</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />

@@ -66,7 +66,7 @@ const Alpha =()=>{
                           markTextAsSpoken
                           lang="en-AU"
                           position="leftCenter"
-                          rate={0.65}
+                          rate={0.55}
                           size="large"
                           volume={0.90}
                         >
