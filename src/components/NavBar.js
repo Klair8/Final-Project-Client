@@ -3,7 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import {NavLink} from 'react-router-dom'
+import {NavLink} from 'react-router-dom';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
 function NavBar() {
     return (
@@ -14,14 +15,21 @@ function NavBar() {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
              <Nav.Link as={NavLink} exact to="/" >Home</Nav.Link> 
-              <Nav.Link as={NavLink} exact to="/kids-stories">kids-stories</Nav.Link>
-              <Nav.Link as={NavLink} exact to="/stories/level1">Stories Ages 3-5</Nav.Link>
+             <NavDropdown title="Stories" id="basic-nav-dropdown">
+              <Nav.Link as={NavLink} exact to="/kids-stories">All the stories</Nav.Link>
+              <Nav.Link as={NavLink} exact to="/stories/level1">Stories Ages 3-5 </Nav.Link>
               <Nav.Link as={NavLink} exact to="/stories/level2">Stories Ages 5-6</Nav.Link>
               <Nav.Link as={NavLink} exact to="/stories/level3">Stories Ages 6-7</Nav.Link>
+              <NavDropdown.Divider />
               <Nav.Link as={NavLink} exact to="/stories/adventure">Adventures Stories</Nav.Link>
+              </NavDropdown>
               <Nav.Link as={NavLink} exact to="/EasyA">Easy Alphabet</Nav.Link>
-              <Nav.Link as={NavLink} exact to="/Favorite">Favorite</Nav.Link>
             </Nav>
+            <Navbar.Collapse className="justify-content-end">
+          <Navbar.Text>
+          <Nav.Link as={NavLink} exact to="/Favorite"> Favorite Stories </Nav.Link>
+          </Navbar.Text>
+        </Navbar.Collapse>
           </Navbar.Collapse>
         </Container>
       </Navbar>

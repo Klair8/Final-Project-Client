@@ -89,17 +89,16 @@ const closedefBox =()=>{
 return(
     <div>
         <NavBar/>
-        {
-            story.map((items)=>{
-                return(
-                    <div key={items.id} className="storydiv">
-                        <h2>{items.title}</h2>
-                        <p>{items.author}</p>
-                        <button onClick={()=>{
-                        console.log('buttonstartclicked')
-                        handleGenerate();
+        <div className="storyPage">
+        { story.map((items)=>{
+            return(
+                <div key={items.id} className="storydiv">
+                    <h2>{items.title}</h2>
+                    <p> created by {items.author}</p>
+                    <button className='button-storypage' onClick={()=>{
+                    handleGenerate();
                     }}> Start Story </button>
-                       <button onClick={() => handleFavorite()}>  {isFavorite ? 'Remove from Favorites' : 'Add to Favorites'} </button>  
+                    <button onClick={() => handleFavorite()}>  {isFavorite ? 'Remove from Favorites' : 'Add to Favorites'} </button>  
                     {started && (
                         <div className="tts">
                         <TextToSpeech
@@ -110,36 +109,32 @@ return(
                           markTextAsSpoken
                           lang="en-AU"
                           position="leftCenter"
-                          rate={0.65}
+                          rate={0.75}
                           size="large"
                           volume={0.90}
                         >
-
-
-          <div className="story-text">
-                        {items.story.split(' ').map((word, index) => (
-                    <span key={index} onClick={() => handleWordClick(word)}>
-                      {word}{' '}
-                    </span>
-                  ))}
+                        <div className="story-text">{items.story.split(' ').map((word, index) => (
+                        <span key={index} onClick={() => handleWordClick(word)}>
+                        {word}{' '}
+                        </span>
+                         ))}
                         </div>
                         </TextToSpeech>
                         <div className="definitionBox">
                             <h4>{selectedWord}</h4>
                             <p>{definition}</p>
-                            {
-                                selectedWord && definition &&(
-                                    <button onClick={()=>closedefBox()}>X</button>
+                            {selectedWord && definition && (
+                                <button onClick={()=>closedefBox()}> X </button>
                                 )
                             }
                         </div>
                         </div>
-
                     )}
-                    </div>     
+                </div>     
                 )
             })
         }
+        </div>
     </div>
 )
 }

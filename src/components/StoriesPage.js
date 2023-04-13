@@ -24,27 +24,26 @@ const StoriesPage =(props)=>{
     return(
         <div>
           <NavBar/>
-          <br></br>
-          <h2>All our Stories </h2>
           <div className="storiespage">
+            <h2>All our Stories </h2>
+          <div className="storycontainer" >
             <br></br>
             {
-                stories.map(story=>{
-                  return(
-                    <div className="storycontainer" key={story.id}>
-                      <Card style={{ width: '18rem', height:'26rem' }}>
-                       <Card.Img variant="top" src={story.image_url} /> 
-                       <Card.Body>
-                       <Card.Title>{story.title}</Card.Title>
-                       <Card.Text>{story.description}</Card.Text>
-                        <br></br>
-                        <button variant="primary"><Link to ={`/story/${story.id}`} state={story.id} onClick={() => console.log('story.id', story.id)}>Read</Link></button>
-                        </Card.Body>  
-                        </Card>
-                        </div>
+              stories.map(story=>{
+                return(
+                  <Card className="card"  key={story.id} style={{ width: '18rem', height:'26rem' , border:'2px solid black' }}>
+                    <Card.Img variant="top" src={story.image_url} /> 
+                      <Card.Body>
+                      <Card.Title>{story.title}</Card.Title>
+                      <Card.Text>{story.description}</Card.Text>
+                      <br></br>
+                      <button className='buttonRead'><Link to ={`/story/${story.id}`} state={story.id} onClick={() => console.log('story.id', story.id)}> Read</Link></button>
+                      </Card.Body>  
+                  </Card>
                   )  
                 })
-            }
+              }
+            </div>
             </div>
         </div>
     )
