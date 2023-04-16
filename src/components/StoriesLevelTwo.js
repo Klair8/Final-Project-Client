@@ -26,7 +26,7 @@ const StoriesLevelTwo =(props)=>{
         <div>
           <NavBar/>
             <div className="storiespage">
-              <h2>Stories for ages 5-6 </h2>
+              <h1>Stories for ages 5-6 </h1>
             <div className="storycontainer">
              <br></br>
             {
@@ -38,7 +38,7 @@ const StoriesLevelTwo =(props)=>{
                       <Card.Title>{story.title}</Card.Title>
                       <Card.Text>{story.description}</Card.Text>
                       <br></br>
-                      <button className='buttonRead'><Link to ={`/story/${story.id}`} state={story.id} onClick={() => console.log('story.id', story.id)}>Read</Link></button>
+                      <button className='button'><Link to ={`/story/${story.id}`} state={story.id} onClick={() => console.log('story.id', story.id)}>Read</Link></button>
                       </Card.Body>  
                   </Card>
                   )  
