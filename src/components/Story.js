@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-regular-svg-icons'
 
 console.log('key',process.env.REACT_APP_API_KEY)
-// const Key = process.env.REACT_APP_API_KEY;
+const Key = process.env.REACT_APP_API_KEY;
 
 const Story =(props)=>{
 const location = useLocation();
@@ -48,7 +48,7 @@ const handleWordClick = (word) => {
     const options = {
         method: 'GET',
         headers: {
-          'X-RapidAPI-Key': 'Key',// key without the "" !!
+          'X-RapidAPI-Key': Key,
           'X-RapidAPI-Host': 'dictionary-by-api-ninjas.p.rapidapi.com'
         }
       }
@@ -106,16 +106,31 @@ return(
                         style={{ color: isFavorite ? '#c977cf' : 'black' }}
                         onClick={() => handleFavorite()}
                         />
-                          <div className="definitionBox">
-                            <h4>{selectedWord}</h4>
+                        { selectedWord && definition && (
+                        <div className="definitionBox">
+                                <TextToSpeech
+                            align="horizontal"
+                            allowMuting
+                            markBackgroundColor="pink"
+                            markColor="white"
+                            markTextAsSpoken
+                            lang="en"
+                            position="leftCenter"
+                            pitch={0.90}
+                            rate={0.70}
+                            size="large"
+                            volume={0.90}
+                          >
+                        <div class="circle1"></div>
+                        <div class="circle2"></div>
+                            <h4>{selectedWord} : </h4>
                             <h5> {definition} </h5>
-                            {selectedWord && definition && (
-                                <button onClick={()=>closedefBox()}> X </button>
-                                )
+                            </TextToSpeech> 
+                            <button onClick={()=>closedefBox()}> x </button>
+                        </div>  
+                       
+                            )
                             }
-                            <div class="circle1"></div>
-                            <div class="circle2"></div>
-                        </div>
                     {started && (
                         <div className="tts">
                         <TextToSpeech

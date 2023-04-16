@@ -25,7 +25,7 @@ const Favorite = () => {
          {
             favorites.map(items =>(
                 favorites && items && items[0] &&
-                <table>
+                <table className="table">
                 <tr>
                   <th>TITLE</th>
                   <th>STORY TIME </th>
