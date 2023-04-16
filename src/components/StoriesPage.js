@@ -24,14 +24,14 @@ const StoriesPage =(props)=>{
     return(
         <div>
           <NavBar/>
-          <div className="storiespage">
-            <h2>All our Stories </h2>
-          <div className="storycontainer" >
+          <div className="allstoriespage">
+            <h1>All our Stories </h1>
+          <div className="allstorycontainer" >
             <br></br>
             {
               stories.map(story=>{
                 return(
-                  <Card className="card"  key={story.id} style={{ width: '18rem', height:'26rem' , border:'2px solid black' }}>
+                  <Card className="card"  key={story.id} style={{ width: '18rem', height:'26rem' , border:'2px solid black', margin: '10px' }}>
                     <Card.Img variant="top" src={story.image_url} /> 
                       <Card.Body>
                       <Card.Title>{story.title}</Card.Title>

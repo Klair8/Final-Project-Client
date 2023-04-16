@@ -71,13 +71,13 @@ const Alpha =()=>{
                           volume={0.85}
                         >
                 {clickedLetter && (
-                  <div key={clickedLetter} >
-                        <h3>{clickedLetter[0]}</h3> 
-                        <h3>{clickedLetter[1]}</h3>
-                        <h3> such as : {clickedLetter[2]}</h3>
+                  <div className="letterInside" key={clickedLetter} >
+                        <h3>{clickedLetter[0]} {clickedLetter[1]}</h3> 
+                        <h3> like : {clickedLetter[2]}</h3>
                   </div>
                 )}
                 </TextToSpeech>
+                <br></br>
                 <button onClick={()=>closeBox()}>X</button>
               </div>
             )}

@@ -37,8 +37,7 @@ const StoriesLevelThree =(props)=>{
                     <Card.Body>
                       <Card.Title>{story.title}</Card.Title>
                       <Card.Text>{story.description}</Card.Text>
-                      <br></br>
-                      <button className='button'><Link to ={`/story/${story.id}`} state={story.id} onClick={() => console.log('story.id', story.id)}>Read</Link></button>
+                      <button className='buttonRead'><Link to ={`/story/${story.id}`} state={story.id} onClick={() => console.log('story.id', story.id)}>Read</Link></button>
                     </Card.Body>  
                   </Card>
                   )  

@@ -49,11 +49,9 @@ h1{
   align-items: center;
 }
 
-
 /* All StoriesPage components */
 .storiespage{
   display: flex;
-  flex-wrap: wrap;
   flex-direction: column;
   width:100%;
   height: 100vh;
@@ -70,9 +68,37 @@ h1{
   margin-bottom: 100px;
 }
 
+.allstoriespage{
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  width:100%;
+  height: 300vh;
+}
+
+.allstorycontainer{
+  margin-top:10vh;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;  
+}
+
+.buttonRead{
+  text-align: center;
+  padding:10px;
+  background-color: #fee6e3;
+  border-radius: 8px;
+  color: #111;
+  font-size: 16px;
+  text-decoration: none;
+  }
 
 
 /* Story component */
+
+.storyPage{
+ background-color:whitesmoke;
+}
 
 .storydiv{
   margin-top:10vh;
@@ -95,39 +121,85 @@ h1{
   box-shadow: 0 9px #999;
   }
 
- 
 .iconfav{
   font-size: 2.5em;
 }
 
 /* text to speech CSS in Story component */
 .tts {
+  border: 2px solid black;
+  border-radius: 50px;;
   margin-top: 6vh;
+  padding-left :15px;
   display: flex;
   flex-direction: column;
-  width: 800px;
+  width: 1200px;
 }
 
 .tts-react{
   display: grid;
   text-align: justify;
+  margin: 20px;
 }
 
-
 .story-text{
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: 1000px;
+  margin: 0 25px;
   padding: 1rem;
   line-height: 1.5;
-  font-size: 1.2rem;
+  font-size: 22px;
   font-family: Arial, sans-serif;
 }
 
+
+.definitionBox{
+  width: 250px;
+  border: 5px solid #00bfb6;
+  padding: 80px 0px;
+  margin: 30px auto;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 900;
+  font-family: arial;
+  position: relative;
+  color: #00bfb6;
+}
+
+.circle1 {
+  border: 5px solid #00bfb6;
+  position: absolute;
+  width: 25px;
+  padding: 20px;
+  border-radius: 50%;
+  left: -15px;
+  bottom: 23px;
+}
+
+.circle1:before {
+  content: "";
+  position: absolute;
+  width: 25px;
+  padding: 20px;
+  border-radius: 50%;
+  left: 0px;
+  bottom: 0px;
+  background: #fff;
+}
+
+.circle2 {
+  border: 5px solid #00bfb6;
+  position: absolute;
+  width: 5px;
+  padding: 10px 15px;
+  border-radius: 50%;
+  left: -60px;
+  bottom: 5px;
+}
 /* Favorite Component */
 
 .favoritetable  {
   display: flex;
-  justify-content: center;
   margin: 10vh;
   width: 100vh;
 
@@ -149,7 +221,6 @@ h1{
     outline: 0;
   }
   
-
 th,td{
   border: 2px solid black;
   padding: 2vh;
@@ -159,7 +230,6 @@ th,td{
 /* Easy Alphabet component */
 .alpha{
   width:100%;
- 
 }
 
 .letter {
@@ -179,16 +249,23 @@ justify-content: center;
 .letter button{
   border:2px solid black;
   border-radius: 15%;
-  margin: 15%;
-  width: 60px;
-  height: 60px;
+  margin: 5px;
+  width: 80px;
+  height: 80px;
+  padding: 10px;
+  font-size:20px;
+  font-weight: bold;
 }
 
 .letterBox{
   border:2px solid black;
-  background-color: rgba(179, 179, 179, 0.5);
+  background-color: rgba(118, 215, 183, 0.567);
   margin: 3%;
   border-radius: 5%;
   width: 700px;
   height: 250px;
+}
+.letterInside{
+  display: flex;
+  flex-direction: column;
 }

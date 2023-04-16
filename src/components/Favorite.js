@@ -22,24 +22,24 @@ const Favorite = () => {
         <div className='favorite'>
         <h1> Favorite Stories </h1>
         <div className='favoritetable'>
-        <table>
-        <tr>
-          <th>TITLE</th>
-          <th>STORY TIME </th>
-          <th>DELETE</th>
-        </tr>
          {
             favorites.map(items =>(
                 favorites && items && items[0] &&
+                <table>
+                <tr>
+                  <th>TITLE</th>
+                  <th>STORY TIME </th>
+                  <th>DELETE</th>
+                </tr>
                 <tr key={items[0].id}>
                     <td><h5>{items[0].title}</h5></td>
                     <td><button className='buttonFav'> <Link to ={`/story/${(items[0].id)}`} state={(items[0].id)} onClick={() => console.log('story.id', (items[0].id))}> Read </Link></button></td> 
                     <td><button className='buttonFav' onClick={() => handleDelete(items[0].id)}> Delete </button></td> 
                     </tr>
+                    </table>
                )
             )
             }
-          </table>
         </div>
         </div>
         </div>

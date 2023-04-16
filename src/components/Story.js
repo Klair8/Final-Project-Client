@@ -85,9 +85,9 @@ const closedefBox =()=>{
     };
 
 return(
-    <div>
+    <div className="storyPage">
         <NavBar/>
-        <div className="storyPage">
+        <div >
         { 
             story.map((items)=>{
               return(
@@ -106,6 +106,16 @@ return(
                         style={{ color: isFavorite ? '#c977cf' : 'black' }}
                         onClick={() => handleFavorite()}
                         />
+                          <div className="definitionBox">
+                            <h4>{selectedWord}</h4>
+                            <h5> {definition} </h5>
+                            {selectedWord && definition && (
+                                <button onClick={()=>closedefBox()}> X </button>
+                                )
+                            }
+                            <div class="circle1"></div>
+                            <div class="circle2"></div>
+                        </div>
                     {started && (
                         <div className="tts">
                         <TextToSpeech
@@ -143,14 +153,6 @@ return(
                     </div>
                         </TextToSpeech>
                         <br></br>
-                        <div className="definitionBox">
-                            <h4>{selectedWord}</h4>
-                            <h5> {definition} </h5>
-                            {selectedWord && definition && (
-                                <button onClick={()=>closedefBox()}> X </button>
-                                )
-                            }
-                        </div>
                         </div>
                     )}
                 </div>     
