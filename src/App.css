@@ -70,16 +70,6 @@ h1{
   margin-bottom: 100px;
 }
 
-.buttonRead{
-  text-align: center;
-  padding:10px;
-  background-color: #fee6e3;
-  border-radius: 8px;
-  color: #111;
-  font-size: 16px;
-  text-decoration: none;
-  box-shadow: 0 9px #999;
-  }
 
 
 /* Story component */
@@ -136,12 +126,31 @@ h1{
 /* Favorite Component */
 
 .favoritetable  {
-  margin-top: 10vh;
+  display: flex;
+  justify-content: center;
+  margin: 10vh;
   width: 100vh;
 
 }
 
-th{
+.buttonFav{
+  margin: 30px 0 ;
+  text-align: center;
+  padding:10px;
+  background-color: #fee6e3;
+  border-radius: 8px;
+  color: #111;
+  font-size: 16px;
+  text-decoration: none;
+  }
+
+  .buttonFav:hover {
+    background-color: #ffdeda;
+    outline: 0;
+  }
+  
+
+th,td{
   border: 2px solid black;
   padding: 2vh;
 }
