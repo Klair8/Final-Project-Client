@@ -21,7 +21,7 @@ const [definition, setDefinition] = useState('');
 const [isFavorite, setToFavorite] = useState(false);
 
 useEffect (()=>{
-fetch(`/api/story/${id}`)
+fetch(process.env.REACT_APP_SERVER_URL+`/api/story/${id}`)
 .then (response => response.json())
 .then (data => {
     setStory(data)

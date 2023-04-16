@@ -10,7 +10,7 @@ const StoriesPage =(props)=>{
     useEffect(()=>{
       const getStories = async ()=>{
         try{
-            const res = await fetch('/api/story')
+            const res = await fetch(process.env.REACT_APP_SERVER_URL+'/api/story')
             const data = await res.json()
             setStories(data)
             console.log('data',data)

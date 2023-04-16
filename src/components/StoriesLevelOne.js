@@ -10,7 +10,7 @@ const StoriesLevelOne =(props)=>{
     useEffect(()=>{
       const getStories = async ()=>{
         try{
-            const res = await fetch('/api/story/')
+            const res = await fetch(process.env.REACT_APP_SERVER_URL+'/api/story/')
             const data = await res.json()
             const specificStories = data.filter(story => story.level == "level1" )
         setStories(specificStories);
