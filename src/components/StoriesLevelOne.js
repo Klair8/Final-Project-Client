@@ -10,6 +10,7 @@ const StoriesLevelOne =(props)=>{
     useEffect(()=>{
       const getStories = async ()=>{
         try{
+          console.log('process',process.env.REACT_APP_SERVER_URL)
             const res = await fetch(process.env.REACT_APP_SERVER_URL+'/api/story/')
             const data = await res.json()
             const specificStories = data.filter(story => story.level == "level1" )
@@ -33,7 +34,7 @@ const StoriesLevelOne =(props)=>{
                 stories.map(story=>{
                   return(
                     <Card className="card"  key={story.id} style={{ width: '18rem', height:'26rem' , border:'2px solid black' }}>
-                      <Card.Img variant="top" src={story.image_url} /> 
+                      <Card.Img variant="top" src={`${process.env.REACT_APP_SERVER_URL}${story.image_url}`} /> 
                       <Card.Body>
                         <Card.Title>{story.title}</Card.Title>
                         <Card.Text>{story.description}</Card.Text>
