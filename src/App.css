@@ -97,7 +97,8 @@ h1{
 /* Story component */
 
 .storyPage{
- background-color:whitesmoke;
+  background-color: #faf2f1;
+  height: 200vh;
 }
 
 .storydiv{
