@@ -127,7 +127,7 @@ return(
                           lang="en"
                           position="leftCenter"
                           pitch={0.90}
-                          rate={0.80}
+                          rate={0.70}
                           size="large"
                           volume={0.90}
                         >

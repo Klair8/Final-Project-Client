@@ -10,6 +10,7 @@ import './App.css';
 import HomePage from './components/HomePage';
 import Alpha from './components/Alpha';
 import Favorite from './components/Favorite';
+import Links from './components/Links';
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
           <Route path='/kids-stories' element={<StoriesPage/>} />
           <Route path='/story/:id' element={<Story/>} />
           <Route path='/EasyA' element={<Alpha/>} />
+          <Route path='/CoolLinks' element={<Links/>} />
           <Route path='/Favorite' element={<Favorite/>} />
       </Routes>
     </div>

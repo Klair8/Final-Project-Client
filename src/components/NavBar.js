@@ -20,9 +20,9 @@ function NavBar() {
               <Nav.Link as={NavLink} exact to="/stories/level1">Stories Ages 3-5 </Nav.Link>
               <Nav.Link as={NavLink} exact to="/stories/level2">Stories Ages 5-6</Nav.Link>
               <Nav.Link as={NavLink} exact to="/stories/level3">Stories Ages 6-7</Nav.Link>
-              <NavDropdown.Divider />
-              <Nav.Link as={NavLink} exact to="/stories/adventure">Adventures Stories</Nav.Link>
               </NavDropdown>
+              <Nav.Link as={NavLink} exact to="/stories/adventure">Adventures Stories</Nav.Link>
+              <Nav.Link as={NavLink} exact to="/CoolLinks">Alphabets Songs</Nav.Link>
               <Nav.Link as={NavLink} exact to="/EasyA">Easy Alphabet</Nav.Link>
             </Nav>
             <Navbar.Collapse className="justify-content-end">

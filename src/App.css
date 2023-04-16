@@ -153,10 +153,10 @@ h1{
 
 
 .definitionBox{
-  width: 250px;
+  width: 350px;
   border: 5px solid #00bfb6;
   padding: 80px 0px;
-  margin: 30px auto;
+  margin: 30px 0px auto 800px;
   border-radius: 50%;
   text-align: center;
   font-size: 24px;
@@ -169,7 +169,7 @@ h1{
 .circle1 {
   border: 5px solid #00bfb6;
   position: absolute;
-  width: 25px;
+  width: 28px;
   padding: 20px;
   border-radius: 50%;
   left: -15px;
@@ -179,12 +179,11 @@ h1{
 .circle1:before {
   content: "";
   position: absolute;
-  width: 25px;
-  padding: 20px;
+  width: 28px;
+  padding: 20px 25px;
   border-radius: 50%;
   left: 0px;
   bottom: 0px;
-  background: #fff;
 }
 
 .circle2 {
@@ -268,4 +267,26 @@ justify-content: center;
 .letterInside{
   display: flex;
   flex-direction: column;
+}
+
+/* LinksComponent */
+.LinksSongs{
+display: flex;
+}
+
+.Links{
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 40px;
+  padding: 40px;
+  width: 300px;
+  height: 300px;
+  border: 5px solid #00bfb6;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 900;
+  font-family: arial;
+  color: #00bfb6;
 }
