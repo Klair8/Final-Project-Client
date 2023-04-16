@@ -72,7 +72,11 @@ const Alpha =()=>{
                         >
                 {clickedLetter && (
                   <div className="letterInside" key={clickedLetter} >
-                        <h3>{clickedLetter[0]} {clickedLetter[1]}</h3> 
+                        <h3> Capital {clickedLetter[0]}{" "}
+                        <mark className="hideMark"> :</mark>
+                        </h3>
+                        <h3> Small {clickedLetter[1]}</h3>
+                        <mark className="hideMark"> :</mark>
                         <h3> like : {clickedLetter[2]}</h3>
                   </div>
                 )}
