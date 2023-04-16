@@ -22,6 +22,7 @@ function NavBar() {
               <Nav.Link as={NavLink} exact to="/stories/level3">Stories Ages 6-7</Nav.Link>
               </NavDropdown>
               <Nav.Link as={NavLink} exact to="/stories/adventure">Adventures Stories</Nav.Link>
+              <Nav.Link as={NavLink} exact to="/stories/space"> Space Stories</Nav.Link>
               <Nav.Link as={NavLink} exact to="/CoolLinks">Alphabets Songs</Nav.Link>
               <Nav.Link as={NavLink} exact to="/EasyA">Easy Alphabet</Nav.Link>
             </Nav>

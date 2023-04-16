@@ -11,27 +11,21 @@ import HomePage from './components/HomePage';
 import Alpha from './components/Alpha';
 import Favorite from './components/Favorite';
 import Links from './components/Links';
+import StoriesSpace from './components/StoriesSpace';
 
 
 function App() {
-  // const [message, setMessage] = useState("");
 
-  // useEffect(() => {
-  //   fetch("http://localhost:5002/message")
-  //     .then((res) => res.json())
-  //     .then((data) => setMessage(data.message));
-  // }, []);
-  
   return (
     <BrowserRouter>
     <div className="App">
-     {/* <p>{message}</p> */}
      <Routes>
           <Route path='/' element={<HomePage/>} />
           <Route path='/stories/level1' element={<StoriesLevelOne/>} />
           <Route path='/stories/level2' element={<StoriesLevelTwo/>} />
           <Route path='/stories/level3' element={<StoriesLevelThree/>} />
           <Route path='/stories/adventure' element={<StoriesAdv/>} />
+          <Route path='/stories/space' element={<StoriesSpace/>} />
           <Route path='/kids-stories' element={<StoriesPage/>} />
           <Route path='/story/:id' element={<Story/>} />
           <Route path='/EasyA' element={<Alpha/>} />

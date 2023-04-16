@@ -32,7 +32,7 @@ const HomePage =()=>{
                 <button className="button"> Adventures </button>
                 </Link> 
                 <br></br>
-                <Link to="/stories/adventure"> 
+                <Link to="/stories/space"> 
                 <button className="button"> Spaces </button>
                 </Link> 
             </div>
