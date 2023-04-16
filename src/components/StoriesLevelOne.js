@@ -24,9 +24,9 @@ const StoriesLevelOne =(props)=>{
     },[])
 
     return(
-        <div>
+        <div className="storiespage">
           <NavBar/>
-            <div className="storiespage">
+            <div >
               <h1>Stories for ages 3-5 </h1>
             <div className="storycontainer" >
             <br></br>

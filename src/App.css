@@ -53,8 +53,8 @@ h1{
 .storiespage{
   display: flex;
   flex-direction: column;
-  width:100%;
-  height: 100vh;
+  background-color: #faf2f1;
+  height: 200vh;
 }
 
 .storycontainer{
