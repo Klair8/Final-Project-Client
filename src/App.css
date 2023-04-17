@@ -165,8 +165,8 @@ h1{
   font-family: arial;
   position: absolute;
   color: #00bfb6;
-  bottom: 450px;
-  right:300px
+  bottom: 320px;
+  right:150px
 }
 
 .definitionBox h4::after {
